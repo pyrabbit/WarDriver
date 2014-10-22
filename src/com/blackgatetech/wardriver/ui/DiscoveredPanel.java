@@ -1,5 +1,6 @@
 package com.blackgatetech.wardriver.ui;
 
+import com.blackgatetech.wardriver.lib.KismetClient;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.FlowLayout;
@@ -8,11 +9,11 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class DiscoveredPanel extends JPanel {
-    public DiscoveredPanel(JPanel mp) {
+    public DiscoveredPanel(JPanel mp, KismetClient conn) {
         setLayout(new FlowLayout());
         setVisible(true);
         JPanel labelsPanel = new JPanel(new GridLayout(6,2,60,0));
-        
+
         JLabel unassociatedLabel = new JLabel("Unassociated");
         unassociatedLabel.setFont(new Font("Sans Serif", Font.PLAIN, 18));
         JLabel networksLabel = new JLabel("Networks");
@@ -25,10 +26,11 @@ public class DiscoveredPanel extends JPanel {
         wpaLabel.setFont(new Font("Sans Serif", Font.PLAIN, 18));
         JLabel wpa2Label = new JLabel("WPA2");
         wpa2Label.setFont(new Font("Sans Serif", Font.PLAIN, 18));
-
+ 
         JLabel unassociatedCountLabel = new JLabel("7365");
         unassociatedCountLabel.setFont(new Font("Sans Serif", Font.PLAIN, 18));
-        JLabel networksCountLabel = new JLabel("18456");
+        JLabel networksCountLabel = new JLabel(String.valueOf(conn.getNetworkCount()));
+        
         networksCountLabel.setFont(new Font("Sans Serif", Font.PLAIN, 18));
         JLabel openCountLabel = new JLabel("7657");
         openCountLabel.setFont(new Font("Sans Serif", Font.PLAIN, 18));
@@ -64,14 +66,6 @@ public class DiscoveredPanel extends JPanel {
                 mp.setVisible(true);
             }
         });
+        
     }
 }
-
-/*
-Unassociated
-Networks
-Open
-WEP
-WPA
-WPA2
-*/
