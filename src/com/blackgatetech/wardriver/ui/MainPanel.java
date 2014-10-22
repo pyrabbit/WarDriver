@@ -92,7 +92,7 @@ public class MainPanel extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 System.out.println("discovered clicked");
                 setVisible(false);
-                DiscoveredPanel d = new DiscoveredPanel(mainMenu);
+                DiscoveredPanel d = new DiscoveredPanel(mainMenu, conn);
                 af.add(d);
             }
         });
