@@ -39,7 +39,7 @@ public class GpsPanel extends JPanel {
         JLabel velocityLabelVal = new JLabel("37 mph");
         velocityLabelVal.setFont(new Font("Sans Serif", Font.PLAIN, 20));
         
-        Icon backIcon = new ImageIcon("/Users/matt/Dropbox/Matthew/Programming/Wardriver/WarDriver/src/com/blackgatetech/wardriver/ui/back.png");
+        Icon backIcon = new ImageIcon("resources/back.png");
         JButton back = new JButton(backIcon);
         
         labels.add(latLabel);

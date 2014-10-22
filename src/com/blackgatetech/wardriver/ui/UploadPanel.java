@@ -29,7 +29,7 @@ public class UploadPanel extends JPanel {
         console.setBackground(Color.BLACK);
         console.setForeground(Color.WHITE);
         
-        Icon backIcon = new ImageIcon("/Users/matt/Dropbox/Matthew/Programming/Wardriver/WarDriver/src/com/blackgatetech/wardriver/ui/back.png");
+        Icon backIcon = new ImageIcon("resources/back.png");
         JButton back = new JButton(backIcon);
         
         progressPanel.add(uploadButton);

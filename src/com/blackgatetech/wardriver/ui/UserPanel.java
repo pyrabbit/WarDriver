@@ -27,7 +27,7 @@ public class UserPanel extends JPanel {
         onlineLabel.setFont(new Font("Sans Serif", Font.PLAIN, 36));
         onlineLabel.setForeground(Color.green);
         
-        Icon backIcon = new ImageIcon("/Users/matt/Dropbox/Matthew/Programming/Wardriver/WarDriver/src/com/blackgatetech/wardriver/ui/back.png");
+        Icon backIcon = new ImageIcon("resources/back.png");
         JButton back = new JButton(backIcon);
         
         labels.add(usernameLabel);

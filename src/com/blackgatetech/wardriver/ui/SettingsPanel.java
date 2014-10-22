@@ -17,9 +17,9 @@ public class SettingsPanel extends JPanel {
         setVisible(true);
         
         // Instantiate needed icons
-        Icon channelsIcon = new ImageIcon("/Users/matt/Dropbox/Matthew/Programming/Wardriver/WarDriver/src/com/blackgatetech/wardriver/ui/channels.png");
-        Icon dwellIcon = new ImageIcon("/Users/matt/Dropbox/Matthew/Programming/Wardriver/WarDriver/src/com/blackgatetech/wardriver/ui/dwell.png");
-        Icon backIcon = new ImageIcon("/Users/matt/Dropbox/Matthew/Programming/Wardriver/WarDriver/src/com/blackgatetech/wardriver/ui/back.png");
+        Icon channelsIcon = new ImageIcon("resources/channels.png");
+        Icon dwellIcon = new ImageIcon("resources/dwell.png");
+        Icon backIcon = new ImageIcon("resources/back.png");
         
         // Create buttons and modify them
         JButton back = new JButton(backIcon);

@@ -13,6 +13,7 @@ import javax.swing.*;
 
 public class MainPanel extends JPanel {
     public MainPanel(JFrame af) {
+        // I
         KismetClient conn = new KismetClient();
         setLayout(new GridLayout(2,3));
         JPanel mainMenu = this;

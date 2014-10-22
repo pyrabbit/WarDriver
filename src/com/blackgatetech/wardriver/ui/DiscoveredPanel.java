@@ -39,7 +39,7 @@ public class DiscoveredPanel extends JPanel {
         JLabel wpa2CountLabel = new JLabel("64654");
         wpa2CountLabel.setFont(new Font("Sans Serif", Font.PLAIN, 18));
         
-        Icon backIcon = new ImageIcon("/Users/matt/Dropbox/Matthew/Programming/Wardriver/WarDriver/src/com/blackgatetech/wardriver/ui/back.png");
+        Icon backIcon = new ImageIcon("resources/back.png");
         JButton back = new JButton(backIcon);
         
         labelsPanel.add(unassociatedLabel);
