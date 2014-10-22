@@ -6,12 +6,14 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.net.UnknownHostException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
 
 public class MainPanel extends JPanel {
     public MainPanel(JFrame af) {
+        KismetClient conn = new KismetClient();
         setLayout(new GridLayout(2,3));
         JPanel mainMenu = this;
         
@@ -57,18 +59,23 @@ public class MainPanel extends JPanel {
 
         startButton.addActionListener(new ActionListener () {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                if("Stop".equals(startButton.getText())) {
+            public void actionPerformed(ActionEvent e){
+                if("Start".equals(startButton.getText())) {
+                    try {
+                        if (conn.connectToServer()) {
+                            startButton.setIcon(stopIcon);
+                            startButton.setText("Stop");
+                        }
+                    } catch (UnknownHostException ex) {
+                        Logger.getLogger(MainPanel.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (IOException ex) {
+                        Logger.getLogger(MainPanel.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                } else {
                     startButton.setIcon(startIcon);
                     startButton.setText("Start");
-                } else {
-                    startButton.setIcon(stopIcon);
-                    startButton.setText("Stop");
-                    
-                    KismetClient conn = new KismetClient();
-                    conn.connectToServer();
+                    conn.disconnectFromServer();
                 }
-                System.out.println("start/stop clicked");
             }
         });
 
