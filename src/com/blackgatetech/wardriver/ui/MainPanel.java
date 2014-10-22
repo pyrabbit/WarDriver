@@ -13,11 +13,14 @@ import javax.swing.*;
 
 public class MainPanel extends JPanel {
     public MainPanel(JFrame af) {
-        // I
+        // Instantiate KismetClient connection
         KismetClient conn = new KismetClient();
+        
+        // GUI Magic
         setLayout(new GridLayout(2,3));
         JPanel mainMenu = this;
         
+        // Declare Icons needed
         Icon settingsIcon = new ImageIcon("resources/settings.png");
         Icon startIcon = new ImageIcon("resources/start.png");
         Icon stopIcon = new ImageIcon("resources/stop.png");
@@ -26,6 +29,7 @@ public class MainPanel extends JPanel {
         Icon uploadIcon = new ImageIcon("resources/upload.png");
         Icon userIcon = new ImageIcon("resources/user.png");
         
+        // Create and modify main menu buttons
         JButton startButton = new JButton("Start", startIcon);
         startButton.setVerticalTextPosition(SwingConstants.BOTTOM);
         startButton.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -51,13 +55,15 @@ public class MainPanel extends JPanel {
         settingsButton.setHorizontalTextPosition(SwingConstants.CENTER);
         settingsButton.setFont(new Font("Sans Serif", Font.PLAIN, 16));
         
-       add(startButton);
-       add(discoveredButton);
-       add(gpsButton);
-       add(uploadButton);
-       add(userButton);
-       add(settingsButton);
+        // Add elements to GUI
+        add(startButton);
+        add(discoveredButton);
+        add(gpsButton);
+        add(uploadButton);
+        add(userButton);
+        add(settingsButton);
 
+        // ActionListener for start button
         startButton.addActionListener(new ActionListener () {
             @Override
             public void actionPerformed(ActionEvent e){
@@ -80,6 +86,7 @@ public class MainPanel extends JPanel {
             }
         });
 
+        // ActionListener for discovered button
         discoveredButton.addActionListener(new ActionListener () {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -89,7 +96,8 @@ public class MainPanel extends JPanel {
                 af.add(d);
             }
         });
-        
+
+        // ActionListener for gps button
         gpsButton.addActionListener(new ActionListener () {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -100,6 +108,7 @@ public class MainPanel extends JPanel {
             }
         });
         
+        // ActionListener for upload button       
         uploadButton.addActionListener(new ActionListener () {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -110,6 +119,7 @@ public class MainPanel extends JPanel {
             }
         });
 
+        // ActionListener for user button
         userButton.addActionListener(new ActionListener () {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -119,7 +129,8 @@ public class MainPanel extends JPanel {
                 af.add(us);
             }
         });
-                
+           
+        // ActionListener for settings button
         settingsButton.addActionListener(new ActionListener () {
             @Override
             public void actionPerformed(ActionEvent e) {
