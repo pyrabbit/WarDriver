@@ -15,13 +15,13 @@ public class MainPanel extends JPanel {
         setLayout(new GridLayout(2,3));
         JPanel mainMenu = this;
         
-        Icon settingsIcon = new ImageIcon("/Users/matt/Dropbox/Matthew/Programming/Wardriver/WarDriver/src/com/blackgatetech/wardriver/ui/settings.png");
-        Icon startIcon = new ImageIcon("/Users/matt/Dropbox/Matthew/Programming/Wardriver/WarDriver/src/com/blackgatetech/wardriver/ui/start.png");
-        Icon stopIcon = new ImageIcon("/Users/matt/Dropbox/Matthew/Programming/Wardriver/WarDriver/src/com/blackgatetech/wardriver/ui/stop.png");
-        Icon locationIcon = new ImageIcon("/Users/matt/Dropbox/Matthew/Programming/Wardriver/WarDriver/src/com/blackgatetech/wardriver/ui/location.png");
-        Icon seenIcon = new ImageIcon("/Users/matt/Dropbox/Matthew/Programming/Wardriver/WarDriver/src/com/blackgatetech/wardriver/ui/seen.png");
-        Icon uploadIcon = new ImageIcon("/Users/matt/Dropbox/Matthew/Programming/Wardriver/WarDriver/src/com/blackgatetech/wardriver/ui/upload.png");
-        Icon userIcon = new ImageIcon("/Users/matt/Dropbox/Matthew/Programming/Wardriver/WarDriver/src/com/blackgatetech/wardriver/ui/user.png");
+        Icon settingsIcon = new ImageIcon("resources/settings.png");
+        Icon startIcon = new ImageIcon("resources/start.png");
+        Icon stopIcon = new ImageIcon("resources/stop.png");
+        Icon locationIcon = new ImageIcon("resources/location.png");
+        Icon seenIcon = new ImageIcon("resources/seen.png");
+        Icon uploadIcon = new ImageIcon("resources/upload.png");
+        Icon userIcon = new ImageIcon("resources/user.png");
         
         JButton startButton = new JButton("Start", startIcon);
         startButton.setVerticalTextPosition(SwingConstants.BOTTOM);
