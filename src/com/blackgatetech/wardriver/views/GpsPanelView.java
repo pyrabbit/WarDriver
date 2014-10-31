@@ -1,4 +1,4 @@
-package com.blackgatetech.wardriver.ui;
+package com.blackgatetech.wardriver.views;
 
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -11,8 +11,8 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class GpsPanel extends JPanel {
-    GpsPanel(JPanel mp) {
+public class GpsPanelView extends JPanel {
+    GpsPanelView(JPanel mp) {
         setLayout(new FlowLayout());
         setVisible(true);
         

@@ -1,4 +1,4 @@
-package com.blackgatetech.wardriver.ui;
+package com.blackgatetech.wardriver.views;
 
 import java.awt.Color;
 import java.awt.FlowLayout;
@@ -12,8 +12,8 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class UserPanel extends JPanel {
-    UserPanel(JPanel mp) {
+public class UserPanelView extends JPanel {
+    UserPanelView(JPanel mp) {
         setLayout(new FlowLayout());
         setVisible(true);
         JPanel labels = new JPanel(new GridLayout(3,1));

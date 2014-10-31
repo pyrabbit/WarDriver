@@ -1,4 +1,4 @@
-package com.blackgatetech.wardriver.ui;
+package com.blackgatetech.wardriver.views;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -12,8 +12,8 @@ import javax.swing.JEditorPane;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 
-public class UploadPanel extends JPanel {
-    UploadPanel(JPanel mp) {
+public class UploadPanelView extends JPanel {
+    UploadPanelView(JPanel mp) {
         setLayout(new FlowLayout());
         setVisible(true);
         JPanel progressPanel = new JPanel(new FlowLayout());

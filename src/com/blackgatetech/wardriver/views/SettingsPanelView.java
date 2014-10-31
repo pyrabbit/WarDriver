@@ -1,4 +1,4 @@
-package com.blackgatetech.wardriver.ui;
+package com.blackgatetech.wardriver.views;
 
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -10,8 +10,8 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-public class SettingsPanel extends JPanel {
-    SettingsPanel(JPanel mp) {
+public class SettingsPanelView extends JPanel {
+    SettingsPanelView(JPanel mp) {
         // Initiate Settings Layout and make it visible
         setLayout(new GridLayout(2,3));
         setVisible(true);
