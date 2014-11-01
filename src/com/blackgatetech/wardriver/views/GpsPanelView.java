@@ -16,7 +16,7 @@ public class GpsPanelView extends JPanel {
     private final JLabel latLoc = new JLabel("");
     private final JLabel lonLabel = new JLabel("Longitude");
     private final JLabel lonLoc = new JLabel("");
-    private final JLabel fixLabel = new JLabel("Longitude");
+    private final JLabel fixLabel = new JLabel("Fix");
     private final JLabel fixVal = new JLabel("");
     private final JLabel speedLabel = new JLabel("Speed");
     private final JLabel speedVal = new JLabel("");
