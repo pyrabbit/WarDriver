@@ -45,7 +45,7 @@ public class MainMenuView extends JPanel {
         
         MainMenuController mainMenuController = new MainMenuController(this, wardriverModel);
         DiscoveredController discoveredController = new DiscoveredController(discoveredView, wardriverModel);
-//        GpsController gpsController = new GpsController(gpsView, wardriverModel);
+        GpsController gpsController = new GpsController(gpsView, wardriverModel);
 //        UploadController uploadController = new UploadController(uploadView, wardriverModel);
 //        UserController userController = new UserController(userView, wardriverModel); Will probably need to create a user model and api
 //        SettingsController settingsController = new SettingsControlelr(settingsView, wardriverModel);
@@ -87,11 +87,36 @@ public class MainMenuView extends JPanel {
             this.add(settingsButton);
             
             this.wardriverModel.addObserver(this.discoveredController);
+            this.wardriverModel.addObserver(this.gpsController);
 
             discoveredButton.addActionListener((ActionEvent e) -> {
                 this.setVisible(false);
                 mf.add(discoveredView);
                 discoveredView.setVisible(true);
+            });
+            
+            gpsButton.addActionListener((ActionEvent e) -> {
+                this.setVisible(false);
+                mf.add(gpsView);
+                gpsView.setVisible(true);
+            });
+            
+            uploadButton.addActionListener((ActionEvent e) -> {
+               this.setVisible(false);
+               mf.add(uploadView);
+               uploadView.setVisible(true);
+            });
+            
+            profileButton.addActionListener((ActionEvent e) -> {
+               this.setVisible(false);
+               mf.add(userView);
+               userView.setVisible(true);
+            });
+            
+            settingsButton.addActionListener((ActionEvent e) -> {
+               this.setVisible(false);
+               mf.add(settingsView);
+               settingsView.setVisible(true);
             });
         }
         

@@ -45,7 +45,8 @@ public class KismetClient implements Runnable {
             // Send Kismet commands 
             toServer.write("!0 REMOVE TIME\r\n");
             toServer.write("!0 ENABLE BSSID bssid,channel\r\n");
-//            toServer.write("!0 ENABLE SSID mac,ssid\r\n");
+            toServer.write("!0 CAPABILITY GPS\r\n");
+            toServer.write("!0 ENABLE GPS *\r\n");
             
             // Flush the output stream
             toServer.flush();
