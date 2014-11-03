@@ -2,6 +2,7 @@ package com.blackgatetech.wardriver.views;
 
 import java.awt.GridLayout;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import javax.swing.*;
 
@@ -15,6 +16,9 @@ public class DiscoveredPanelView extends JPanel {
         
     public DiscoveredPanelView(JPanel mp) {
         setLayout(new FlowLayout());
+        
+        networksLabel.setFont(new Font("Sans Serif", Font.PLAIN, 17));
+        networksCountLabel.setFont(new Font("Sans Serif", Font.PLAIN, 17));
         
         labelsPanel.add(networksLabel);
         labelsPanel.add(networksCountLabel);
