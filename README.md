@@ -13,6 +13,6 @@ WarDriver allows you to easily conduct a Wi-Fi survey and upload it to the WarDr
 </ul>
 
 <h2>Use</h2>
-In order to use WarDriver in its current state, you must compile and run WarDriver as well as start the kismet server
+In order to use WarDriver in its current state, you must compile and run WarDriver as well as start the kismet server.
 <h3>Starting the Kismet server</h3>
 Inside a shell type the following command: <code>kismet_server -c wlan0 -n</code>
