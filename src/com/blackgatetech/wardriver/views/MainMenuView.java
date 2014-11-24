@@ -2,11 +2,11 @@
 package com.blackgatetech.wardriver.views;
 
 import com.blackgatetech.wardriver.controllers.*;
+import com.blackgatetech.wardriver.lib.KismetListener;
 import com.blackgatetech.wardriver.models.WardriverModel;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 public class MainMenuView extends JPanel {
-            // Instantiate views
+        // Instantiate views
         private final DiscoveredPanelView discoveredView = new DiscoveredPanelView(this);
         private final GpsPanelView gpsView = new GpsPanelView(this);
         private final UploadPanelView uploadView = new UploadPanelView(this);
@@ -118,12 +118,15 @@ public class MainMenuView extends JPanel {
                mf.add(settingsView);
                settingsView.setVisible(true);
             });
+            
+            startButton.addActionListener(new KismetListener(wardriverModel));
         }
         
-        public void addToggleKismetListener (ActionListener listenForKismetToggle) {
-            startButton.addActionListener(listenForKismetToggle);
-        }
         
+//        public void addToggleKismetListener (ActionListener listenForKismetToggle) {
+//            startButton.addActionListener(listenForKismetToggle);
+//        }
+//         
         public void displayErrorMessage(String errorMessage) {
             JOptionPane.showMessageDialog(this, errorMessage);
         }

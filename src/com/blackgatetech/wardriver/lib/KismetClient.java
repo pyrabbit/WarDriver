@@ -1,6 +1,7 @@
 package com.blackgatetech.wardriver.lib;
 
 import com.blackgatetech.wardriver.models.WardriverModel;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -46,6 +47,7 @@ public class KismetClient implements Runnable {
             toServer.write("!0 REMOVE TIME\r\n");
             toServer.write("!0 ENABLE BSSID bssid,channel\r\n");
             toServer.write("!0 CAPABILITY GPS\r\n");
+            toServer.write("!0 CAPABILITY BSSID\r\n");
             toServer.write("!0 ENABLE GPS *\r\n");
             
             // Flush the output stream

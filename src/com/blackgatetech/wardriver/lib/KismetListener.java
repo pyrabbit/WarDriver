@@ -8,34 +8,47 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 public class KismetListener implements ActionListener {
-    
-    private final KismetClient conn;
-    private boolean connectedToKismetServer = false;
+    private KismetClient conn;
+    private boolean connectedToKismetServer;
+
     private final Icon startIcon = new ImageIcon("resources/start.png");
     private final Icon stopIcon = new ImageIcon("resources/stop.png");
     private final WardriverModel wardriverModel;
 
     public KismetListener(WardriverModel wardriverModel) {
+        this.connectedToKismetServer = false;
         this.wardriverModel = wardriverModel;
         this.conn = new KismetClient(this.wardriverModel);
     }
-        
+    
+    public KismetListener (WardriverModel wardriverModel, KismetClient conn) {
+        this.wardriverModel = wardriverModel;
+        this.conn = conn;
+        this.connectedToKismetServer = false;
+    }
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         JButton button = (JButton)e.getSource();
         
-        if (!connectedToKismetServer) {
-            if (conn.connectToServer()) {
-                connectedToKismetServer = true;
-                button.setText("Stop");
-                button.setIcon(stopIcon);
-            }
-        } else {
+        if (isConnectedToKismetServer()) {
             conn.disconnectFromServer();
-            connectedToKismetServer = false;
+            setConnectedToKismetServer(false);
             button.setText("Start");
             button.setIcon(startIcon);
+        } else {
+            setConnectedToKismetServer(conn.connectToServer());
+            wardriverModel.connectToMongo();
+            button.setText("Stop");
+            button.setIcon(stopIcon);
         }
     }
     
+    public boolean isConnectedToKismetServer() {
+        return connectedToKismetServer;
+    }
+
+    public void setConnectedToKismetServer(boolean connectedToKismetServer) {
+            this.connectedToKismetServer = connectedToKismetServer;
+    }
 }

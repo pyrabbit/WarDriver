@@ -3,6 +3,17 @@ package com.blackgatetech.wardriver.models;
 import java.util.HashSet;
 import java.util.Observable;
 import java.util.Set;
+import com.mongodb.MongoClient;
+import com.mongodb.DB;
+import com.mongodb.DBCollection;
+import com.mongodb.BasicDBObject;
+import com.mongodb.DBCursor;
+
+import com.mongodb.DBObject;
+
+import java.net.UnknownHostException;
+
+import java.util.Date;
 
 public class WardriverModel extends Observable {
     Set<String> networksSeen = new HashSet<>();
@@ -15,14 +26,61 @@ public class WardriverModel extends Observable {
     private int fix = 0;
     private boolean connected = false;
     
+    private MongoClient mongoClient;
+    private DB db;
+    private DBCollection coll;
+    
+    public void connectToMongo() {
+        try {
+            this.mongoClient = new MongoClient();
+            this.db = mongoClient.getDB("wardriver");
+            this.coll = db.getCollection("networks");
+        } catch (UnknownHostException ex) {
+            System.err.println("Could not connect to MongoDB");
+        }
+    }
+    
     public void parseKismetPotocol(String[] pkt) {
         switch(pkt[0]) {
             
             case "*BSSID:":
-                // if channel is not equal to zero and packet is added to set
-                if (!"0".equals(pkt[2]) && networksSeen.add(pkt[1])) {
-                    setNetworkCount(networksSeen.size());
-                }          
+                // pkt 1 = bssid
+                // pkt 2 = channel
+                if (!"0".equals(pkt[2])) {
+                    BasicDBObject query = new BasicDBObject("bssid", pkt[1]);
+                    System.out.println(query);
+                    DBCursor cursor = coll.find(query);
+                    System.out.println(cursor);
+
+                     DBObject update = new BasicDBObject(
+                            "$setOnInsert", new BasicDBObject(
+                                "channel", pkt[2]
+                            )
+                        ).append(
+                            "$push", new BasicDBObject(
+                                "heardpoints", new BasicDBObject(
+                                    "$each", new DBObject[]{
+                                        new BasicDBObject(
+                                            "geometry",
+                                            new BasicDBObject("type","Point").append(
+                                                "coordinates", new double[]{longitude, latitude}
+                                            )
+                                        ).append(
+                                            "time", new Date()
+                                        )
+                                    }
+                                ).append(
+                                    "$sort", new BasicDBObject(
+                                        "time", -1
+                                    )
+                                ).append("$slice", -20)
+                            )
+                        );
+                     
+                     coll.update(query, update, true, true);
+                     networksSeen.add(pkt[1]);
+                     setNetworkCount(networksSeen.size());
+                }
                 break;
             case "*GPS:":
                 setLatitude(Double.parseDouble(pkt[1]));
