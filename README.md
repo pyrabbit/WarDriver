@@ -11,3 +11,8 @@ WarDriver allows you to easily conduct a Wi-Fi survey and upload it to the WarDr
 <li>External USB wireless card capable of monitor mode</li>
 <li>USB GPS Receiver</li>
 </ul>
+
+<h2>Use</h2>
+In order to use WarDriver in its current state, you must compile and run WarDriver as well as start the kismet server
+<h3>Starting the Kismet server</h3>
+kismet_server -c wlan0 -n 
