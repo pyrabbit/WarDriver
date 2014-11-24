@@ -48,9 +48,6 @@ public class WardriverModel extends Observable {
                 // pkt 2 = channel
                 if (!"0".equals(pkt[2])) {
                     BasicDBObject query = new BasicDBObject("bssid", pkt[1]);
-                    System.out.println(query);
-                    DBCursor cursor = coll.find(query);
-                    System.out.println(cursor);
 
                      DBObject update = new BasicDBObject(
                             "$setOnInsert", new BasicDBObject(
@@ -73,7 +70,7 @@ public class WardriverModel extends Observable {
                                     "$sort", new BasicDBObject(
                                         "time", -1
                                     )
-                                ).append("$slice", -20)
+                                ).append("$slice", -1000)
                             )
                         );
                      
