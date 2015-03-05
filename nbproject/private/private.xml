@@ -3,10 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/rabbit/NetBeansProjects/WarDriver/src/com/blackgatetech/wardriver/lib/KismetListener.java</file>
-            <file>file:/home/rabbit/NetBeansProjects/WarDriver/src/com/blackgatetech/wardriver/views/MainMenuView.java</file>
-            <file>file:/home/rabbit/NetBeansProjects/WarDriver/src/com/blackgatetech/wardriver/controllers/MainMenuController.java</file>
-            <file>file:/home/rabbit/NetBeansProjects/WarDriver/src/Wardriver.java</file>
+            <file>file:/home/rabbit/NetBeansProjects/WarDriver/src/com/blackgatetech/wardriver/controllers/GpsController.java</file>
+            <file>file:/home/rabbit/NetBeansProjects/WarDriver/src/com/blackgatetech/wardriver/controllers/DiscoveredController.java</file>
             <file>file:/home/rabbit/NetBeansProjects/WarDriver/src/com/blackgatetech/wardriver/models/WardriverModel.java</file>
         </group>
     </open-files>
